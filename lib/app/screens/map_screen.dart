@@ -37,16 +37,26 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Map'),
+        actions: [
+          if (widget.isSelecting)
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop(_pickedLocation);
+                },
+                icon: const Icon(Icons.check))
+        ],
       ),
       body: FlutterMap(
         options: MapOptions(
           center: LatLng(widget.initialLocation.latitude,
               widget.initialLocation.longitude),
           zoom: 16.0,
-          onLongPress: widget.isSelecting
+          onTap: widget.isSelecting
               ? (tapPosition, point) {
                   setState(() {
-                    _pickedLocation = point;
+                    LatLng newPoint = LatLng(
+                        point.latitude + 0.0003, point.longitude - 0.00012);
+                    _pickedLocation = newPoint;
                   });
                 }
               : null,
