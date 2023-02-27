@@ -26,12 +26,6 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   LatLng? _pickedLocation;
 
-  void _selectLocation(LatLng position) {
-    setState(() {
-      _pickedLocation = position;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,8 +77,10 @@ class _MapScreenState extends State<MapScreen> {
                 )
               else if (!widget.isSelecting)
                 Marker(
-                  point: LatLng(widget.initialLocation.latitude,
-                      widget.initialLocation.longitude),
+                  point: LatLng(
+                    widget.initialLocation.latitude,
+                    widget.initialLocation.longitude,
+                  ),
                   builder: (ctx) => const Icon(
                     Icons.location_on,
                     size: 50,

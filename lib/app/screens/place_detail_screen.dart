@@ -4,7 +4,6 @@ import '../../providers/great_places.dart';
 import 'map_screen.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
-  static const String routeName = '/place-detail-screen';
   const PlaceDetailScreen({Key? key}) : super(key: key);
 
   @override
@@ -39,6 +38,7 @@ class PlaceDetailScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
+                  fullscreenDialog: true,
                   builder: (context) => MapScreen(
                     isSelecting: false,
                     initialLocation: selectedPlace.location!,
