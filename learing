@@ -1,3 +1,22 @@
 trong provider:
     khai bao _list
     create get return [..._list]
+
+camera 
+import 'package:image_picker/image_picker.dart';
+    File? _storeImage;
+
+  Future<void> _takePicture() async {
+    final picker = ImagePicker();
+    final imageFile = await picker.pickImage(
+      source: ImageSource.camera,
+      maxWidth: 600,
+    );
+
+    setState(() {
+      _storeImage = File(imageFile!.path);
+    });
+  }
+path_provider: cung cap, tim duong dan
+path: ket hop duong dan
+sqflite
