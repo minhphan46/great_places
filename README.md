@@ -6,4 +6,4 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-I learn store sqflite, camera, use map and store file
+I used store sqflite, camera, use map and store file
